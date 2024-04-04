@@ -1,4 +1,4 @@
-import HomeContent from "@/components/Molecule/Home/HomeContent";
+import HomeContent from "../components/Molecule/Home/HomeContent";
 
 export default function Home() {
   return (

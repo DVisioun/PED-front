@@ -1,7 +1,7 @@
 "use client";
-import DayCard from "@/components/Atom/DayCard/DayCard";
+import DayCard from "../../Atom/DayCard/DayCard";
 import React, { useEffect, useState } from "react";
-import { TipsService } from "@/api/TipsService";
+import { TipsService } from "../../../api/TipsService";
 
 function HomeContent() {
   const [tips, setTips] = useState();
