@@ -1,4 +1,4 @@
-import TipContent from "@/components/Molecule/Tip/TipContent";
+import TipContent from '../../../components/Molecule/Tip/TipContent';
 
 export default function Tip() {
   return (

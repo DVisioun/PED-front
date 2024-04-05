@@ -1,28 +1,91 @@
 "use client";
 import DayCard from "../../Atom/DayCard/DayCard";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { TipsService } from "../../../api/TipsService";
 
 function HomeContent() {
-  const [tips, setTips] = useState();
+  const [tips, setTips] = useState([]);
+  const [tipDrawn, setTipDrawn] = useState(true);
 
   const handleGetTips = async () => {
     try {
       const response = await TipsService.get();
       if (response.status === 200) {
-        const data = response.data.data.tips;
+        const data = response.data.tips;
+        const tipsFiltered = data.filter(tips => tips.used != 1);
 
-        const tipsFiltered = data.dados.filter(tips => tips.used != 1);
-        setTips(tipsFiltered);
+        if (tipsFiltered.length > 0) {
+          const randomIndex = Math.floor(Math.random() * tipsFiltered.length);
+          const randomTip = tipsFiltered[randomIndex];
+          await handleSetTipUsed(randomTip);
+          setTipDrawn(true);
+          handleGetTipsUsed();
+        } else {
+          console.log("Não há dicas disponíveis após filtragem.");
+        }
       }
     } catch (error) {
       console.log("Erro na consulta: ", error);
     }
   };
 
+  const handleSetTipUsed = async (tip) => {
+    const lastDay = await handleGetLastDay();
+
+    try {
+      const response = await TipsService.put(tip.id, lastDay + 1);
+      if (response.status === 200) {
+
+      }
+    } catch (error) {
+      console.log("Erro na consulta: ", error);
+    }
+  }
+
+  const handleGetTipsUsed = async () => {
+    try {
+      const response = await TipsService.get();
+      if (response.status === 200) {
+        const data = response.data.tips;
+        const tipsUsedFiltered = data.filter(tips => tips.used == 1);
+        setTips(tipsUsedFiltered);
+        console.log(tipsUsedFiltered);
+      }
+    } catch (error) {
+      console.log("Erro na consulta: ", error);
+    }
+  }
+
+  const handleGetLastDay = async () => {
+    try {
+      const response = await TipsService.getLastDay();
+      if (response.status === 200) {
+        return response.data.day[0].last_day;
+      }
+    } catch (error) {
+      console.log("Erro na consulta: ", error);
+    }
+  }
+
   useEffect(() => {
-    handleGetTips();
+    handleGetTipsUsed();
+
+    const verificarMeiaNoite = () => {
+      const agora = new Date();
+      if (agora.getHours() == 21 && agora.getMinutes() == 47) {
+        setTipDrawn(false);
+        clearInterval(interval);
+      }
+    };
+
+    let interval = setInterval(verificarMeiaNoite, 6000);
   }, []);
+
+  useEffect(() => {
+    if (!tipDrawn) {
+      handleGetTips();
+    }
+  }, [tipDrawn]);
 
   return (
     <div>
@@ -30,10 +93,9 @@ function HomeContent() {
         Dias
       </h1>
       <div className="mb-4 flex gap-3">
-        <DayCard day="1" />
-        <DayCard day="2" />
-        <DayCard day="3" />
-        <DayCard day="4" />
+        {tips.map((tip, index) => (
+          <a href={`/tip/${tip.id}`} key={index}><DayCard day={tip.day_used} /></a>
+        ))}
       </div>
     </div>
   );

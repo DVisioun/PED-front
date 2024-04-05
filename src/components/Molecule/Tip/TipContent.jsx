@@ -1,4 +1,4 @@
-import ContentCard from "@/components/Atom/ContentCard/ContentCard";
+import ContentCard from "../../Atom/ContentCard/ContentCard";
 import React from "react";
 
 function TipContent() {
