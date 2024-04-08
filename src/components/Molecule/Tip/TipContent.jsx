@@ -1,10 +1,10 @@
 import ContentCard from "../../Atom/ContentCard/ContentCard";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-function TipContent() {
+function TipContent({ id }) {
   return (
     <div>
-        <ContentCard />
+      <ContentCard id={id} />
     </div>
   );
 }

@@ -7,6 +7,10 @@ export class TipsService {
         return axios.get(`${BASE_URL}`);
     }
 
+    static getById(id) {
+        return axios.get(`${BASE_URL}/${id}`);
+    }
+
     static put(id, day) {
         const data = {
             "used" : 1,
@@ -17,6 +21,6 @@ export class TipsService {
     }
 
     static getLastDay(){
-        return axios.get(`${BASE_URL}/day`);
+        return axios.get(`http://localhost:3001/day`);
     }
 }

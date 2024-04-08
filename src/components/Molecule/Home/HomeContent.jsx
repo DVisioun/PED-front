@@ -35,7 +35,7 @@ function HomeContent() {
     try {
       const response = await TipsService.put(tip.id, lastDay + 1);
       if (response.status === 200) {
-
+        console.log("Atualizado com sucesso");
       }
     } catch (error) {
       console.log("Erro na consulta: ", error);
@@ -59,6 +59,7 @@ function HomeContent() {
   const handleGetLastDay = async () => {
     try {
       const response = await TipsService.getLastDay();
+      console.log(response)
       if (response.status === 200) {
         return response.data.day[0].last_day;
       }
@@ -72,7 +73,7 @@ function HomeContent() {
 
     const verificarMeiaNoite = () => {
       const agora = new Date();
-      if (agora.getHours() == 21 && agora.getMinutes() == 47) {
+      if (agora.getHours() == 0 && agora.getMinutes() == 24) {
         setTipDrawn(false);
         clearInterval(interval);
       }
