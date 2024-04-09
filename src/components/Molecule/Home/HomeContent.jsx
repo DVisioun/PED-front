@@ -1,6 +1,6 @@
 'use client'
 import DayCard from '../../Atom/DayCard/DayCard'
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TipsService } from '../../../api/TipsService'
 
 function HomeContent() {
@@ -12,7 +12,7 @@ function HomeContent() {
       const response = await TipsService.get()
       if (response.status === 200) {
         const data = response.data.tips
-        const tipsFiltered = data.filter((tips) => tips.used != 1)
+        const tipsFiltered = data.filter((tips) => tips.used !== 1)
 
         if (tipsFiltered.length > 0) {
           const randomIndex = Math.floor(Math.random() * tipsFiltered.length)
@@ -47,7 +47,7 @@ function HomeContent() {
       const response = await TipsService.get()
       if (response.status === 200) {
         const data = response.data.tips
-        const tipsUsedFiltered = data.filter((tips) => tips.used == 1)
+        const tipsUsedFiltered = data.filter((tips) => tips.used === 1)
         setTips(tipsUsedFiltered)
         console.log(tipsUsedFiltered)
       }
@@ -73,7 +73,7 @@ function HomeContent() {
 
     const verificarMeiaNoite = () => {
       const agora = new Date()
-      if (agora.getHours() == 0 && agora.getMinutes() == 24) {
+      if (agora.getHours() === 0 && agora.getMinutes() === 24) {
         setTipDrawn(false)
         clearInterval(interval)
       }

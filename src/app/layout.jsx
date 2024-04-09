@@ -1,4 +1,4 @@
-import { Big_Shoulders_Stencil_Text, Inter, Poppins } from 'next/font/google'
+import { Big_Shoulders_Stencil_Text, Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Atom/Header/Header'
 import Footer from '../components/Atom/Footer/Footer'

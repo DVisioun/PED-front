@@ -1,5 +1,5 @@
 import ContentCard from '../../Atom/ContentCard/ContentCard'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 function TipContent({ id }) {
   return (
