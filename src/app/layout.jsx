@@ -1,7 +1,7 @@
-import { Big_Shoulders_Stencil_Text, Inter, Poppins } from "next/font/google";
-import "./globals.css";
-import Header from "../components/Atom/Header/Header";
-import Footer from "../components/Atom/Footer/Footer";
+import { Big_Shoulders_Stencil_Text, Inter, Poppins } from 'next/font/google'
+import './globals.css'
+import Header from '../components/Atom/Header/Header'
+import Footer from '../components/Atom/Footer/Footer'
 
 const poppins = Poppins({
   weight: ['400', '500', '600', '700', '800'],
@@ -23,5 +23,5 @@ export default function RootLayout({ children }) {
         <Footer />
       </body>
     </html>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function Header() {
   return (
@@ -7,7 +7,7 @@ function Header() {
         <img src="/images/logo.png" className="w-[89px]" />
       </a>
     </div>
-  );
+  )
 }
 
-export default Header;
+export default Header
