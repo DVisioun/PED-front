@@ -73,7 +73,7 @@ function HomeContent() {
 
     const verificarMeiaNoite = () => {
       const agora = new Date()
-      if (agora.getHours() === 0 && agora.getMinutes() === 24) {
+      if (agora.getHours() == 0 && agora.getMinutes() == 24) {
         setTipDrawn(false)
         clearInterval(interval)
       }

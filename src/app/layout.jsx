@@ -1,4 +1,7 @@
-import { Big_Shoulders_Stencil_Text, Poppins } from 'next/font/google'
+import {
+  Big_Shoulders_Stencil_Text as bigShoulders,
+  Poppins,
+} from 'next/font/google'
 import './globals.css'
 import Header from '../components/Atom/Header/Header'
 import Footer from '../components/Atom/Footer/Footer'
@@ -8,7 +11,7 @@ const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
 })
-const big = Big_Shoulders_Stencil_Text({
+const big = bigShoulders({
   weight: ['400', '500', '600', '700', '800'],
   subsets: ['latin'],
   variable: '--font-big',
