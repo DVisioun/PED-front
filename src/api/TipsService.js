@@ -13,8 +13,8 @@ export class TipsService {
 
   static getByFilter(language, level) {
     const data = {
-      language: language,
-      level: level,
+      language,
+      level,
     }
 
     return axios.get(`${BASE_URL}/`, data)
