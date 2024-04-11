@@ -1,6 +1,6 @@
 'use client'
 import { useParams } from 'next/navigation'
-import TipContent from '../../../components/Molecule/Tip/TipContent'
+import TipContent from '../../../components/Organism/Tip/TipContent'
 
 export default function Tip() {
   const { id } = useParams(0)

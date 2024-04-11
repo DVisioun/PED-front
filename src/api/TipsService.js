@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3001/tips'
+const BASE_URL = 'https://ped-backend.vercel.app/tips'
 
 export class TipsService {
   static get() {
@@ -9,6 +9,15 @@ export class TipsService {
 
   static getById(id) {
     return axios.get(`${BASE_URL}/${id}`)
+  }
+
+  static getByFilter(language, level) {
+    const data = {
+      language: language,
+      level: level,
+    }
+
+    return axios.get(`${BASE_URL}/`, data)
   }
 
   static put(id, day) {
@@ -21,6 +30,6 @@ export class TipsService {
   }
 
   static getLastDay() {
-    return axios.get(`http://localhost:3001/day`)
+    return axios.get(`https://ped-backend.vercel.app/day`)
   }
 }

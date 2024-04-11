@@ -20,6 +20,9 @@ const big = bigShoulders({
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <title>PED</title>
+      </head>
       <body className={`${poppins.variable} ${big.variable} font-sans`}>
         <Header />
         {children}
