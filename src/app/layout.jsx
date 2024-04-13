@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <head>
-        <title>PED</title>
+        <title>PED - Prog Every Day</title>
       </head>
-      <body className={`${poppins.variable} ${big.variable} font-sans`}>
+      <body className={`${poppins.variable} ${big.variable} font-sans bg-primary`}>
         <Header />
         {children}
         <Footer />

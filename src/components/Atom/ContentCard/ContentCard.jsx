@@ -12,7 +12,6 @@ function ContentCard({ id }) {
       if (response.status === 200) {
         const data = response.data.tip[0]
         if (data.used === 1) {
-          console.log(data)
           setTip(data)
         } else {
           push('/')

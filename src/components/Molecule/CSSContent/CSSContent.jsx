@@ -42,9 +42,9 @@ function CSSContent() {
   }
   const handleGetTipsUsed = async () => {
     try {
-      const response = await TipsService.get()
+      const response = await TipsService.getByFilter(2,1)
       if (response.status === 200) {
-        const data = response.data.tips
+        const data = response.data.tip
         const tipsUsedFiltered = data.filter((tips) => tips.used === 1)
         setTips(tipsUsedFiltered)
       }
@@ -89,7 +89,7 @@ function CSSContent() {
       </h1>
       <div className="mb-4 flex gap-3">
         {tips.map((tip, index) => (
-          <a href={`/tip/${tip.id}`} key={index}>
+          <a href={`/tip/${tip.id}`} key={index} title={tip.name}>
             <DayCard day={tip.day_used} />
           </a>
         ))}
