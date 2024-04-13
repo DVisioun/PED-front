@@ -42,7 +42,7 @@ function JavascriptContent() {
   }
   const handleGetTipsUsed = async () => {
     try {
-      const response = await TipsService.getByFilter(3,1)
+      const response = await TipsService.getByFilter(3, 1)
       if (response.status === 200) {
         const data = response.data.tip
         const tipsUsedFiltered = data.filter((tips) => tips.used === 1)

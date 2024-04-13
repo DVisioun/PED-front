@@ -14,10 +14,10 @@ export class TipsService {
   static getByFilter(language, level) {
     const data = {
       language_id: language,
-      level_id: level
+      level_id: level,
     }
 
-    return axios.post("https://ped-backend.vercel.app/filter", data)
+    return axios.post('https://ped-backend.vercel.app/filter', data)
   }
 
   static put(id, day) {

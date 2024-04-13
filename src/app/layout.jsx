@@ -23,7 +23,9 @@ export default function RootLayout({ children }) {
       <head>
         <title>PED - Prog Every Day</title>
       </head>
-      <body className={`${poppins.variable} ${big.variable} font-sans bg-primary`}>
+      <body
+        className={`${poppins.variable} ${big.variable} font-sans bg-primary`}
+      >
         <Header />
         {children}
         <Footer />
