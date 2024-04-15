@@ -37,7 +37,7 @@ function ContentCard({ id }) {
       {tip.example && (
         <div className="bg-secondary w-full p-10 rounded-lg mb-10">
           <h1 className="text-primary mb-5 text-2xl">Exemplo</h1>
-          <pre className='text-primary text-lg text font-sans'>{tip.example}</pre>
+          <pre className="text-primary text-lg text font-sans">{tip.example}</pre>
         </div>
       )}
       {tip.links && (
