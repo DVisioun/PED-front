@@ -37,13 +37,13 @@ function ContentCard({ id }) {
       {tip.example && (
         <div className="bg-secondary w-full p-10 rounded-lg mb-10">
           <h1 className="text-primary mb-5 text-2xl">Exemplo</h1>
-          <p className="text-primary text-lg">{tip.example}</p>
+          <pre className='text-primary text-lg text font-sans'>{tip.example}</pre>
         </div>
       )}
       {tip.links && (
         <div className="bg-secondary w-full p-10 rounded-lg mb-10">
           <h1 className="text-primary mb-5 text-2xl">Links</h1>
-          <p className="text-primary text-lg">{tip.links}</p>
+          <div className="text-primary text-lg" dangerouslySetInnerHTML={{ __html: tip.links }} />
         </div>
       )}
     </>
@@ -51,16 +51,3 @@ function ContentCard({ id }) {
 }
 
 export default ContentCard
-
-/*
-  <p className="text-primary text-lg">
-    O elemento de divisão <span className="text-emphasis">&lt;div&gt;</span> é um
-    container genérico para conteúdo de fluxo, que de certa forma não
-    representa nada. Ele pode ser utilizado para agrupar elementos para fins
-    de estilos (usando class ou id), ou porque eles compartilham valores de
-    atributos, como lang. Ele deve ser utilizado somente quando não tiver
-    outro elemento de semântica (tal como
-    <span className="text-emphasis"> &lt;article&gt;</span> ou
-    <span className="text-emphasis"> &lt;nav&gt;</span>).
-  </p>
-*/
